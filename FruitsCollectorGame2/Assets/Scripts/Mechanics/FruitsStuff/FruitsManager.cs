@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Mechanics
 {
+    /// <summary>
+    /// Pool logic for fruitObjects and else
+    /// </summary>
     public class FruitsManager : MonoBehaviour
     {
         [SerializeField] private List<FruitObject> fruits;

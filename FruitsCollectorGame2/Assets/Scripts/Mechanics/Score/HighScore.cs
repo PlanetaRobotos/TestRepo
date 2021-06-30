@@ -4,9 +4,11 @@ using UnityEngine;
 
 namespace Mechanics
 {
+    /// <summary>
+    /// Top-5 best results
+    /// </summary>
     public class HighScore : MonoBehaviour
     {
-        // public int[] BestScores = new int[5];
         public const int HighScoreCount = 5;
 
         private void Awake()
@@ -21,14 +23,11 @@ namespace Mechanics
         }
 
         /// <summary>
-        /// 
+        /// Adding Score in prefs
         /// </summary>
         /// <param name="number">from 0 to 4</param>
         /// <param name="value"></param>
-        private static void AddScore(int number, int value)
-        {
-            PlayerPrefs.SetInt($"Number{number}", value);
-        }
+        private static void AddScore(int number, int value) => PlayerPrefs.SetInt($"Number{number}", value);
 
         public static int CheckNewScore(int value)
         {

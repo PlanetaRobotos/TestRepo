@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace UI
 {
+    /// <summary>
+    /// All player ui fiches
+    /// </summary>
     public class PlayerUI : MonoBehaviour
     {
         [SerializeField] private Text scoreText;
@@ -16,25 +19,14 @@ namespace UI
         private void Awake() =>
             _instance = this;
 
-        private void Start()
-        {
+        private void Start() => 
             SetScore();
-        }
 
-        public static void SetScore()
-        {
-            _instance.scoreText.text = $"Score: {GameManager.CurrentScore}";
-        }
+        public static void SetScore() => _instance.scoreText.text = $"Score: {GameManager.CurrentScore}";
 
-        public static void SetHealth()
-        {
-            _instance.hearts[GameManager.CurrentHealth].gameObject.SetActive(false);
-        }
+        public static void SetHealth() => _instance.hearts[GameManager.CurrentHealth].gameObject.SetActive(false);
 
-        public static void SetHighScore(int number)
-        {
-            _instance.highScores[number].text = $"Score {number + 1}: {GameManager.CurrentScore}";
-        }
+        public static void SetHighScore(int number) => _instance.highScores[number].text = $"Score {number + 1}: {GameManager.CurrentScore}";
 
         public static void SetCurrentHigScore()
         {

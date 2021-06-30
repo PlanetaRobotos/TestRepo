@@ -2,6 +2,9 @@
 
 namespace Mechanics
 {
+    /// <summary>
+    /// Find distance by side of screen
+    /// </summary>
     public class Board : MonoBehaviour
     {
         [SerializeField] private float minPosition;

@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Mechanics
 {
+    /// <summary>
+    /// Working with pool and collisions
+    /// </summary>
     public class Ground : MonoBehaviour
     {
         [SerializeField] private GameObject gameOverPanel;

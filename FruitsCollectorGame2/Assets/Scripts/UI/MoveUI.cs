@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 
 namespace UI
 {
+    /// <summary>
+    /// Moving player script
+    /// </summary>
     public class MoveUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField] private string direction;
@@ -37,10 +40,8 @@ namespace UI
             }
         }
 
-        private void Move(string dir = "left")
-        {
+        private void Move(string dir = "left") => 
             _basketTransform.Translate((dir == "left" ? Vector3.left : Vector3.right) * (speed * Time.deltaTime));
-        }
 
         public void OnPointerDown(PointerEventData eventData) => _isDown = true;
         public void OnPointerUp(PointerEventData eventData) => _isDown = false;

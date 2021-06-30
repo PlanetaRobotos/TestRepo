@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace UI
 {
+    /// <summary>
+    /// All main logic for ui (buttons...)
+    /// </summary>
     public class MainUI : MonoBehaviour
     {
         [SerializeField] private GameObject startPanel;
@@ -26,10 +29,7 @@ namespace UI
             ChangeMusic(false);
         }
 
-        public void Restart()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        public void Restart() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         public void StartGame()
         {
@@ -37,6 +37,10 @@ namespace UI
             // Debug.Log("GameManager.IsGame = " + GameManager.IsGame);
         }
 
+        /// <summary>
+        /// Mute and unmute music and sounds
+        /// </summary>
+        /// <param name="change"></param>
         public void ChangeMusic(bool change)
         {
             if (change)
@@ -48,6 +52,10 @@ namespace UI
                 audioSource.mute = isOn;
         }
 
+        /// <summary>
+        /// Set in button to changing Bg in game
+        /// </summary>
+        /// <param name="change"></param>
         public void ChangeBg(bool change)
         {
             if (change)
@@ -66,9 +74,6 @@ namespace UI
             backGrounds[value].SetActive(true);
         }
 
-        public void Quit()
-        {
-            Application.Quit();
-        }
+        public void Quit() => Application.Quit();
     }
 }

@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Mechanics
 {
+    /// <summary>
+    /// Player logic
+    /// </summary>
     public class Basket : MonoBehaviour
     {
-        // [Header("Move Stuff")] [SerializeField]
-        // private float speed;
-
         [SerializeField] private int maxHealth = 3;
 
         private AudioSource _audioSource;
@@ -24,21 +24,6 @@ namespace Mechanics
             GameManager.CurrentHealth = maxHealth;
             GameManager.CurrentScore = 0;
         }
-
-        // private void Update()
-        // {
-        //     const float dil = 20f;
-        //
-        //     if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        //     {
-        //         transform.position += Vector3.left * speed / dil;
-        //     }
-        //
-        //     if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        //     {
-        //         transform.position += Vector3.right * speed / dil;
-        //     }
-        // }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
