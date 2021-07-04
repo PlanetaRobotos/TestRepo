@@ -18,10 +18,10 @@ namespace Mechanics
         [SerializeField] private float delay;
 
         [SerializeField] private float delayBetweenSpeedUps;
-        [SerializeField] private int poolLenght;    
-        
+        [SerializeField] private int poolLenght;
+
         [SerializeField] private Transform fruitsContainer;
-        
+
         private float _timer;
         private Queue<GameObject> _fruitGO;
 
@@ -44,25 +44,21 @@ namespace Mechanics
                 newFruit.GetComponent<Fruit>().ScoreAmount = fruits[randFruit].scoreAmount;
                 newFruit.GetComponent<Rigidbody2D>().gravityScale = randGravityScale;
                 newFruit.SetActive(false);
-                
+
                 _fruitGO.Enqueue(newFruit);
             }
 
             while (GameManager.IsGame)
             {
-                // int range = Random.Range(0, poolLenght);
-                // _fruitGO[range].SetActive(true);
-
-                _fruitGO.Dequeue().SetActive(true);
-                
+                GetFromPool();
                 yield return new WaitForSeconds(delay);
             }
         }
 
         private void FixedUpdate()
         {
-            if(!GameManager.IsGame) return;
-            
+            if (!GameManager.IsGame) return;
+
             _timer += Time.deltaTime;
 
             if (_timer >= delayBetweenSpeedUps)
@@ -76,6 +72,14 @@ namespace Mechanics
         {
             obj.SetActive(false);
             _fruitGO.Enqueue(obj);
+        }
+
+        private void GetFromPool()
+        {
+            GameObject obj = _fruitGO.Dequeue();
+            float randXPosition = Random.Range(-xOffset, xOffset);
+            obj.transform.position = new Vector2(randXPosition, offset.position.y);
+            obj.SetActive(true);
         }
     }
 }
